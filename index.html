@@ -5,40 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/index.css">
   
-  <title>Frontend Mentor | Tip calculator app</title>
+  <title>Tip calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  
 </head>
 <body>
 
-  Bill
+  <header>Splitter</header>
+  <section id="wrapper">
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
+    <div>
+      <div class="bill">
 
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
+        <span class="title">Bill</span>
+        <span class="billValue">
+          <img src="./images/icon-dollar.svg" alt="dollar icon"/>
+          <input type="text" id="billAmount" placeholder="0">
+        </span>
+    
+      </div>
+    
+      <div class="tipSelection">
+    
+        <span class="title">Select Tip %</span>
+    
+        <div class="tipPercentages">
+          <span id="five" class="box">5%</span>
+          <span id="ten" class="box">10%</span>
+          <span id="fifteen" class="box">15%</span>
+          <span id="twentyFive" class="box">25%</span>
+          <span id="fifty" class="box">50%</span>
+          <span id="custom" class="box">Custom</span>
+        </div>
+    
+      </div>
+    
+      <div class="people">
+        <span class="title">Number of People</span>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+        <div class="content">
+          <img src="./images/icon-person.svg" alt="Person icon">
+          <input type="text" id="billAmount" placeholder="0">
+        </div>
+      </div>
+      
+    
+    </div>
+    
+    <div class="tipCalculation">
+  
+      <div class="perPerson">
+        <span>
+          <span class="text">Tip Amount<br></span><span class="text2">/person</span>
+        </span>
+        <span><img src="./images/icon-dollar.svg" alt="money sign" class="icon"><span id="amountPerPerson">4.27</span></span>
+      </div>
+  
+      <div class="total">
+        <span>
+        <span class="text">Total <br></span><span class="text2">/person</span>
+        </span>
+        <span><img src="./images/icon-dollar.svg" alt="money sign" class="icon"><span id="total">32.79</span></span>
+      </div>
+      
+      <button id="reset">
+        Reset
+      </button>
+    </div>
+  
+
+    
+    <footer>
+      <span>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.</span>    
+      <span>Coded by <a href="https://github.com/gabrielwere?tab=repositories">Gabriel Were</a>.</span>
+    </footer>
+  </section>
+  
 </body>
 </html>
