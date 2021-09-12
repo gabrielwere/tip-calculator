@@ -4,10 +4,10 @@ let billAmount = 0
 
 
 //GET TIP VALUES
-let custom = 15
+let customInput = document.getElementById("custom")
+let custom = 0
 
-//DEFAULT TIP PERCENTAGE
-let tipPercentage = custom/100
+let tipPercentage = 0
 
 let five = document.getElementById("five")
 five.addEventListener("click",()=>{
@@ -16,6 +16,7 @@ five.addEventListener("click",()=>{
     five.classList.add("box-active")
 
     tipPercentage = 5/100
+    customInput.value = ""
     calculateTips()
 })
 
@@ -26,6 +27,7 @@ ten.addEventListener("click",()=>{
     ten.classList.add("box-active")
 
     tipPercentage = 10/100
+    customInput.value = ""
     calculateTips()
 })
 
@@ -37,6 +39,7 @@ fifteen.addEventListener("click",()=>{
     fifteen.classList.add("box-active")
 
     tipPercentage = 15/100
+    customInput.value = ""
     calculateTips()
 })
 
@@ -48,6 +51,7 @@ twentyFive.addEventListener("click",()=>{
     twentyFive.classList.add("box-active")
 
     tipPercentage = 25/100
+    customInput.value = ""
     calculateTips()
 })
 
@@ -60,6 +64,7 @@ fifty.addEventListener("click",()=>{
    
 
     tipPercentage = 50/100
+    customInput.value = ""
     calculateTips()
 })
 
@@ -81,7 +86,27 @@ function changeClass(){
 
 
 billInput.addEventListener("input",calculateTips)
-numberOfPeopleInput.addEventListener("input",calculateTips)
+numberOfPeopleInput.addEventListener("input",()=>{
+
+    let notZero = document.getElementById("notZero")
+    let content = document.getElementById("content")
+
+    if(numberOfPeopleInput.value == "0"){
+        notZero.style.display = "block"
+        content.style.border = "2px solid #E17052"
+        return
+    }
+    notZero.style.display="none"
+    content.style.border="none"
+    calculateTips()
+})
+
+customInput.addEventListener("input",()=>{
+    custom = parseFloat(customInput.value)
+    tipPercentage = custom/100
+    changeClass()
+    calculateTips()
+})
 
 let tipPerPerson = document.getElementById("amountPerPerson")
 let totalPerPerson = document.getElementById("total")
@@ -91,7 +116,11 @@ function calculateTips(){
     billAmount = parseFloat(billInput.value)
     numberOfPeople = parseFloat(numberOfPeopleInput.value)
 
-    if(!isNaN(billAmount) && !isNaN(numberOfPeople) && billAmount != 0 && numberOfPeople != 0){
+    if(!isNaN(billAmount) && !isNaN(numberOfPeople) && !isNaN(tipPercentage) && billAmount != 0 && numberOfPeople != 0 && tipPercentage != 0){
+        resetButton.classList.remove("reset")
+        resetButton.classList.add("reset-active")
+       
+
         let tip = parseFloat(billAmount * tipPercentage)
         let tipAmountPerPerson = parseFloat((tip/numberOfPeople)).toFixed(2)
         let totalAmountPerPerson = ((billAmount/numberOfPeople) + parseFloat(tipAmountPerPerson)).toFixed(2)
@@ -99,6 +128,8 @@ function calculateTips(){
         tipPerPerson.textContent = tipAmountPerPerson
         totalPerPerson.textContent = totalAmountPerPerson
     }else{
+        resetButton.classList.remove("reset-active")
+        resetButton.classList.add("reset")
         reset()
     }
 }
