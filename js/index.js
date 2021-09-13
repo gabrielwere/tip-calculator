@@ -91,13 +91,16 @@ numberOfPeopleInput.addEventListener("input",()=>{
     let notZero = document.getElementById("notZero")
     let content = document.getElementById("content")
 
-    if(numberOfPeopleInput.value == "0"){
+    if(parseInt(numberOfPeopleInput.value) == 0){
         notZero.style.display = "block"
-        content.style.border = "2px solid #E17052"
+        content.classList.add("orange-border")
+        content.classList.remove("content")
         return
     }
-    notZero.style.display="none"
-    content.style.border="none"
+    notZero.style.display = "none"
+    content.classList.add("content")
+    content.classList.remove("orange-border")
+   
     calculateTips()
 })
 
