@@ -165,11 +165,13 @@ div.numberOfPeople
 div.numberOfPeople span.title
 {
     flex:1;
+    font-size:0.9rem;
 }
 div.numberOfPeople span.notZero
 {
     color:#E17052;
     display:none;
+    font-size:0.9rem
 }
 div.content
 {
@@ -288,6 +290,17 @@ footer a
    {
        display:grid;
        grid-template-columns: repeat(3,1fr);
+   }
+   div.numberOfPeople span.title
+   {
+    flex:1;
+    font-size:1rem;
+   }
+   div.numberOfPeople span.notZero
+   {
+    color:#E17052;
+    display:none;
+    font-size:1rem
    }
    div.tipCalculation
    {
