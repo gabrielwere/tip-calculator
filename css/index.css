@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
-
 body
 {
     margin:0;
     padding:0;
     box-sizing:0;
     font-family: 'Space Mono', monospace;
+    background-color:hsl(185, 41%, 84%);
 }
 header
 {
     background-color: hsl(185, 41%, 84%);
     text-align:center;
     padding:30px;
+    padding-top:40px;
     text-transform: uppercase;
     font-weight:700;
     letter-spacing:0.2rem;
     color:hsl(183, 100%, 15%);
     font-size:1.1rem;
 }
-#wrapper
+section#wrapper
 {
     background-color:hsl(0, 0%, 100%);
-    border:1px solid white;
-    border-radius: 10px;
-   
+    border:10px solid white;
+    border-radius:25px;
 }
 div.bill
 {
@@ -137,6 +137,7 @@ input.custom::placeholder
     text-align:center;
     color:#547878;
     letter-spacing:0.1rem;
+    font-size:1.2rem;
 } 
 input.custom:focus
 {
@@ -177,12 +178,12 @@ div.content
 {
     display:grid;
     grid-template-columns:0.1fr 2fr;
-    padding:10px;
     background-color: #F3F9FA;
     border-radius:8px;
     box-shadow: 5px 10px 8px hsl(0, 0%, 100%);
     padding:10px;
     padding-right:0;
+    align-items:center;
 }
 div.content:focus-within
 {
@@ -199,6 +200,7 @@ div.orange-border
     padding:10px;
     padding-right:0;
     border:2px solid #E17052;
+    align-items:center;
 }
 div.orange-border input
 {
@@ -312,73 +314,65 @@ footer a
 {
     text-decoration:none;
 }
-@media screen and (min-width:560px){
-    div.wrapper
+@media(min-width:500px){
+    div#wrapper
     {
+        height:100vh;
         background-color:hsl(185, 41%, 84%);
-        padding-bottom:200px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        
     }
-    #wrapper
+    section#wrapper
     {
-        margin-left:150px;  
-        margin-right:140px;
-        margin-top:30px;
-        margin-bottom:50px;
         display:grid;
         grid-template-columns:repeat(2,1fr);
-        height:80vh;
-        width:70vw;
+        column-gap:20px;
+        max-width:65vw;
+        padding:20px;
+        margin-bottom:70px;
+    }
+    footer
+    {
+        display:none;
+    }
+    div.tipPercentages
+    {
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        column-gap:10px;
+        row-gap:10px;
         padding:10px;
     }
-   div.tipPercentages
-   {
-       display:grid;
-       grid-template-columns: repeat(3,1fr);
-       column-gap:10px;
-   }
-   div.content input
-   {
-       font-size:1.5rem;
-   }
-   div.numberOfPeople span.title
-   {
-    flex:1;
-    font-size:1rem;
-   }
-   div.numberOfPeople span.notZero
-   {
-    color:#E17052;
-    display:none;
-    font-size:1rem
-   }
-   div.tipCalculation
-   {
-       margin-top:25px;
-       display:flex;
-       flex-direction:column;
-       position:relative
-   }
-   #reset
-   {
-       position:absolute;
-       bottom:8%;
-       left:10%;
-       width:80%;
-   }
-   footer
-   {
-       position: relative;
-       left:50%;
-       top:90%;
-   }
-   #total,#amountPerPerson
-   {
-    font-size:1.5rem;
-   }
-   div.bill,div.tipSelection,div.people
-   {
-       margin-top:20px;
-       margin-bottom:20px;
-       
-   }
+    .reset,.reset-active
+    {
+        margin:10px;
+    }
+    div.tipCalculation
+    {
+        margin-left:25px;
+        margin-right:25px;
+        padding:10px;
+        border:1px solid black;
+        border-radius:10px;
+        background-color:hsl(183, 100%, 15%);
+        display:flex;
+        flex-direction:column;
+        font-weight:700;
+    }
+    div#calculation1
+    {
+        flex:2;
+    }
+    
+   
+}
+@media(min-width:1500px)
+{
+    section#wrapper
+    {
+        max-width:45vw;
+    }
 }
